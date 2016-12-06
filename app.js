@@ -10,8 +10,8 @@ var account = require('./routes/account_routes');
 var school = require('./routes/school_routes')
 var resume = require('./routes/resume_routes');
 var company = require('./routes/company_routes');
-//var address = require('./routes/address_routes');
-//var skill = require('./routes/skill_routes');
+var address = require('./routes/address_routes');
+var skill = require('./routes/skill_routes');
 
 
 var app = express();
@@ -34,8 +34,8 @@ app.use('/school', school);
 app.use('/account', account);
 app.use('/resume', resume);
 app.use('/company', company);
-//app.use('/address', address);
-//app.use('/skill', skill);
+app.use('/address', address);
+app.use('/skill', skill);
 
 
 // catch 404 and forward to error handler
