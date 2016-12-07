@@ -1,6 +1,3 @@
-/**
- * Created by student on 11/16/16.
- */
 var express = require('express');
 var router = express.Router();
 var account_dal = require('../model/account_dal');
@@ -76,14 +73,15 @@ router.get('/insert', function(req, res){
     }
 });
 
+// UPDATE AND EDIT
 
 router.get('/edit', function(req, res){
     if(req.query.account_id == null) {
-        res.send('A account id is required');
+        res.send('A Account id is required');
     }
     else {
         account_dal.edit(req.query.account_id, function(err, result){
-            res.render('account/accountUpdate', {account: result[0][0], account: result[1]});
+            res.render('account/accountUpdate', {school: result[0][0], address: result[1]});
         });
     }
 
@@ -95,20 +93,25 @@ router.get('/edit2', function(req, res){
     }
     else {
         account_dal.getById(req.query.account_id, function(err, account){
-           account_dal.getAll(function(err, account) {
-                res.render('account/accountUpdate', {email: email[0], first_name: last_name});
+            account_dal.getAll(function(err, account) {
+                res.render('account/accountpdate', {school: school[0], address: address});
             });
         });
     }
 
 });
 
-
 router.get('/update', function(req, res){
-    account_dal.update(req.query, function(err, result){
-        res.redirect(302, '/account/all');
+    school_dal.update(req.query, function(err, result){
+        res.redirect(302, '/school/all');
     });
 });
+
+
+
+
+
+
 
 
 
