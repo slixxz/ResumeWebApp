@@ -9,9 +9,9 @@
     <br />
     <br />
     Account ID
-    <select id="resume_id" name="resume_id">
-        <% for(var i=0; resume.length > i; i++ ) { %>
-        <option value="<%= resume[i].resume_id %>"><%= resume[i].resume_name %></option>
+    <select id="account_id" name="account_id">
+        <% for(var i=0; account.length > i; i++ ) { %>
+        <option value="<%= account[i].account_id %>"><%= account[i].first_name + '  ' + account[i].last_name %></option>
         <% } %>
     </select>
 

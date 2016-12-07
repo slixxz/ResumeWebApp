@@ -3,14 +3,21 @@
         <title>Company</title>
     </head>
     <body>
+    <a href="/company/add">Add New Company</a> <br />
+    <br/>
         <h1>Company</h1>
         <table border="1">
-            <tr><th>Company ID</th><th>Comapny Name</th></tr>
+            <tr><th>Company ID</th><th>Company Name</th></tr>
             <% for(var i=0; result.length > i; i++ ) { %>
             <tr>
                 <td><%= result[i].company_id%></td>
-                <td><a href="/resume/?resume_id=<%= result[i].company_id %>"><%= result[i].comapny_name %></a></td>
-                <td><%= result[i].company_id %></td>
+                <td><a href="/company/?company_id=<%= result[i].company_id %>"><%= result[i].company_name %></a></td>
+
+                <td><form action="/company/delete/">
+                        <input type="hidden" name="company_id" id="company_id" value="<%= result[i].company_id %>" />
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
             </tr>
             <% } %>
         </table>
