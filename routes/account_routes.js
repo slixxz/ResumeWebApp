@@ -73,19 +73,7 @@ router.get('/insert', function(req, res){
     }
 });
 
-// UPDATE AND EDIT
 
-router.get('/edit', function(req, res){
-    if(req.query.account_id == null) {
-        res.send('A Account id is required');
-    }
-    else {
-        account_dal.edit(req.query.account_id, function(err, result){
-            res.render('account/accountUpdate', {school: result[0][0], address: result[1]});
-        });
-    }
-
-});
 
 router.get('/edit2', function(req, res){
     if(req.query.account_id == null) {
@@ -93,17 +81,16 @@ router.get('/edit2', function(req, res){
     }
     else {
         account_dal.getById(req.query.account_id, function(err, account){
-            account_dal.getAll(function(err, account) {
-                res.render('account/accountUpdate', {school: school[0], address: address});
-            });
+
+                res.render('account/accountUpdate', {account: account[0]});
         });
     }
 
 });
 
-router.get('/update', function(req, res){
-    acount_dal.update(req.query, function(err, result){
-        res.redirect(302, '/acount/all');
+router.get('/update', function(req, res) {
+    account_dal.update(req.query, function(err, result){
+        res.redirect(302, '/account/all');
     });
 });
 
