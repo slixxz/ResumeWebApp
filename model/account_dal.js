@@ -49,7 +49,7 @@ exports.delete = function(account_id, callback) {
 
 exports.update = function(params, callback) {
     var query = 'UPDATE account SET email = ?,first_name =?, last_name = ? WHERE account_id = ?';
-    var queryData = [params.email, params.last_name, params.account_id];
+    var queryData = [params.email, params.first_name,params.last_name, params.account_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
