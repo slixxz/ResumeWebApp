@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var resume_dal = require('../model/resume_dal');
-var account_dal = require('../model/account_dal');
+var account_dal = require('../model/player_dal');
 
 
 // View All schools
@@ -17,7 +17,7 @@ router.get('/all', function(req, res) {
 
 });
 
-// View the school for the given id
+// View the stadium for the given id
 router.get('/', function(req, res){
     if(req.query.resume_id == null) {
         res.send('resume_id is null');
@@ -46,7 +46,7 @@ router.get('/add', function(req, res){
     });
 });
 
-// insert a school record
+// insert a stadium record
 router.get('/insert', function(req, res){
     // simple validation
     if(req.query.resume_name == null) {
@@ -71,7 +71,7 @@ router.get('/insert', function(req, res){
 
 
 
-// Delete a school for the given school_id
+// Delete a stadium for the given school_id
 router.get('/delete', function(req, res){
     console.log("data: ", req.query);
 

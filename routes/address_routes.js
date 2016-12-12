@@ -16,7 +16,7 @@ router.get('/all', function(req, res) {
 
 });
 
-// View the school for the given id
+// View the stadium for the given id
 router.get('/', function(req, res){
     if(req.query.address_id == null) {
         res.send('address_id is null');
@@ -33,7 +33,7 @@ router.get('/', function(req, res){
     }
 });
 
-// Return the add a new school form
+// Return the add a new stadium form
 router.get('/add', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
     address_dal.getAll(function(err,result) {
@@ -49,7 +49,7 @@ router.get('/add', function(req, res){
 
 
 
-// insert a school record
+// insert a stadium record
 router.get('/insert', function(req, res){
     // simple validation
     if(req.query.address_id == null) {
@@ -75,7 +75,7 @@ router.get('/insert', function(req, res){
     }
 });
 
-// Delete a school for the given school_id
+// Delete a stadium for the given school_id
 router.get('/delete', function(req, res){
     if(req.query.address_id == null) {
         res.send('address_id is null');

@@ -1,40 +1,40 @@
 var express = require('express');
 var router = express.Router();
-var school_dal = require('../model/school_dal');
+var stadium_dal = require('../model/stadium_dal');
 var address_dal = require('../model/address_dal');
 
 
 // View All schools
 router.get('/all', function(req, res) {
-    school_dal.getAll(function(err, result){
+    stadium_dal.getAll(function(err, result){
         if(err) {
             res.send(err);
         }
         else {
-            res.render('school/schoolViewAll', { 'result':result });
+            res.render('stadium/stadiumViewAll', { 'result':result });
         }
     });
 
 });
 
-// View the school for the given id
+// View the stadium for the given id
 router.get('/', function(req, res){
-    if(req.query.school_id == null) {
-        res.send('school_id is null');
+    if(req.query.stadium_id == null) {
+        res.send('stadium_id is null');
     }
     else {
-        school_dal.getById(req.query.school_id, function(err,result) {
+        stadium_dal.getById(req.query.stadium_id, function(err,result) {
             if (err) {
                 res.send(err);
             }
             else {
-                res.render('school/schoolViewById', {'result': result});
+                res.render('stadium/stadiumViewById', {'result': result});
             }
         });
     }
 });
 
-// Return the add a new school form
+// Return the add a new stadium form
 router.get('/add', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
     address_dal.getAll(function(err,result) {
@@ -42,47 +42,46 @@ router.get('/add', function(req, res){
             res.send(err);
         }
         else {
-            res.render('school/schoolAdd', {'address': result});
+            res.render('stadium/stadiumAdd', {'address': result});
         }
     });
 });
 
-// insert a school record
+// insert a stadium record
 router.get('/insert', function(req, res){
     // simple validation
-    if(req.query.school_name == null) {
-        res.send('School Name must be provided.');
+    if(req.query.stadium_name == null) {
+        res.send('Stadium Name must be provided.');
     }
-    else if(req.query.address_id == null) {
-        res.send('An Address must be selected');
-    }
+
+
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
-        school_dal.insert(req.query, function(err,result) {
+        stadium_dal.insert(req.query, function(err,result) {
             if (err) {
                 res.send(err);
             }
             else {
                 //poor practice, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/school/all');
+                res.redirect(302, '/stadium/all');
             }
         });
     }
 });
 
-// Delete a school for the given school_id
+// Delete a stadium for the given school_id
 router.get('/delete', function(req, res){
-    if(req.query.school_id == null) {
-        res.send('school_id is null');
+    if(req.query.stadium_id == null) {
+        res.send('stadium_id is null');
     }
     else {
-        school_dal.delete(req.query.school_id, function(err, result){
+        stadium_dal.delete(req.query.stadium_id, function(err, result){
             if(err) {
                 res.send(err);
             }
             else {
                 //poor practice, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/school/all');
+                res.redirect(302, '/stadium/all');
             }
         });
     }

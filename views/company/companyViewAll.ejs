@@ -1,26 +1,40 @@
 <html>
     <head>
-        <title>Company</title>
+        <title>About</title>
     </head>
     <body>
-    <a href="/company/add">Add New Company</a> <br />
-    <br/>
-        <h1>Company</h1>
-        <table border="1">
-            <tr><th>Company Name</th><th>Action</th></tr>
+               <h1>Comments</h1>
+               <a href="/company/add">Add New Comment</a> <br />
+        <table border="5">
+            <tr><th>Comments<th></tr>
             <% for(var i=0; result.length > i; i++ ) { %>
             <tr>
 
                 <td><a href="/company/?company_id=<%= result[i].company_id %>"><%= result[i].company_name %></a></td>
 
-                <td><form action="/company/delete/">
-                        <input type="hidden" name="company_id" id="company_id" value="<%= result[i].company_id %>" />
-                        <input type="submit" value="Delete"/>
-                    </form>
+                <td>
                 </td>
             </tr>
             <% } %>
         </table>
+    </br>
+    <h1> About my Database:</h1>
+        <b>This Database is for soccer lovers near and far. There are multiple leagues, teams, managers for those team and players for those teams. There are also different regions, skill levels, languages, broadcasting, and tournaments. The function of my database is to keep track of my favorite players, teams, and managers. Or in other words it is for soccer fanatics who love the game and want all the juicy details, such as scores, player trades, league standings, and anything they like to know to keep them up to date. I will create a table called league and one of those leagues will be English Premier League. And within the EPL are many teams one of which is my favorite team arsenal. Arsenal will have data about players, managers, injuries, schedule, team color, and mascot. Players will be its own entity with skill, fitness, playing time, pay, contract, form, and more. There are many leagues and regions that will have to be tracked. I chose this subject because I thought it would be challenging and I love soccer!</b>
+    </br>
+
+    <h1> About My Company:</h1>
+               <b> My company keeps track of your favorite teams data for you for a small charge</b>
+    </br>
+
+               <h1>Relation Schema and ER Diagram</h1>
+
+
+
+               </br>
+<h1> Contact me at:</h1>
+    <b>smith2000@gmail.com </br> 555-666-7777</b>
+
+
     </body>
 
 </html>

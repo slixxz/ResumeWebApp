@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Update <%= player.last_name%></title>
+</head>
+<body>
+<h1>Update <%= player.first_name%></h1>
+<form action="/player/update" method="get">
+    <input type="hidden" id="player_id" name="player_id" value="<%= player.player_id %>">
+    First Name: <input id="first_name" name="first_name" type="text" value="<%= player.first_name%>"/>
+    Last Name: <input id="last_name" name="last_name" type="text" value="<%= player.last_name%>"/>
+    Number of Goals: <input id="number_goals" name="number_goals" type="text" value="<%= player.number_goals%>"/>
+    Age: <input id="age" name="age" type="text" value="<%= player.age%>"/>
+    <br />
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+</body>
+
+</html>
