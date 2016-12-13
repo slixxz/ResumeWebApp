@@ -12,9 +12,9 @@ exports.getAll = function(callback) {
     });
 };
 
-exports.getById = function(address_id, callback) {
-    var query = 'SELECT * FROM address WHERE address_id = ?';
-    var queryData = [address_id];
+exports.getById = function(stadium_id, callback) {
+    var query = 'SELECT * FROM stadium WHERE stadium_id = ?';
+    var queryData = [stadium_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -22,11 +22,11 @@ exports.getById = function(address_id, callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO address (address_id, street, zip_code) VALUES (?, ?,?)';
+    var query = 'INSERT INTO stadium (stadium_name, size, commodities, attendence) VALUES (?, ?,?,?)';
 
     // the question marks in the sql query above will be replaced by the values of the
     // the data in queryData
-    var queryData = [params.address_id, params.street, params.zip_code];
+    var queryData = [params.stadium_name, params.size, params.commodities, params.attendence];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -34,11 +34,11 @@ exports.insert = function(params, callback) {
 
 }
 
-exports.delete = function(address_id, callback) {
-    console.log(address_id);
+exports.delete = function(stadium_id, callback) {
+    console.log(stadium_id);
 
-    var query = 'DELETE FROM address WHERE address_id = ?';
-    var queryData = [address_id];
+    var query = 'DELETE FROM stadium WHERE stadium_id = ?';
+    var queryData = [stadium_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

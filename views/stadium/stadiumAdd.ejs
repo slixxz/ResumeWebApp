@@ -13,8 +13,8 @@
     <br />
     Address
     <select id="stadium_id" name="stadium_id">
-        <% for(var i=0; stadium.length > i; i++ ) { %>
-        <option value="<%= stadium[i].stadium_id %>"><%= stadium[i].stadium_name%></option>
+        <% for(var i=0; address.length > i; i++ ) { %>
+        <option value="<%= address[i].address_id %>"><%= address[i].street%><%= address[i].zip%></option>
         <% } %>
     </select>
 
