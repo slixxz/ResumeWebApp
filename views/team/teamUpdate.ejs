@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Update <%= team.team_name%></title>
+</head>
+<body style="background-color:powderblue;">
+<h1>Update <%= team.team_name%></h1>
+<form action="/team/update" method="get">
+    <input type="hidden" id="team_id" name="team_id" value="<%= team.team_id %>">
+    Team name: <input id="team_name" name="team_name" type="text" value="<%= team.team_name%>"/>
+    City: <input id="city" name="city" type="text" value="<%= team.city%>"/>
+    Country: <input id="country" name="country" type="text" value="<%= team.country%>"/>
+    League: <input id="league" name="league" type="text" value="<%= team.league%>"/>
+    Rating: <input id="rating" name="rating" type="text" value="<%= team.rating%>"/>
+    <br />
+    <br />
+    <br />
+    <input type="submit" />
+
+
+</form>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var stadium_dal = require('../model/stadium_dal');
-var address_dal = require('../model/address_dal');
+var address_dal = require('../model/team_dal');
 
 
 // View All schools

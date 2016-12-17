@@ -2,21 +2,19 @@
 <head>
     <title>Stadium</title>
 </head>
-<body>
+<body style="background-color:powderblue;">
 <h1>Stadium</h1>
-<a href="/stadium/add">Add a New Stadium </a> <br />
+
 
 <br />
 
 <table border="1">
-    <tr><th>Name</th><th>Size</th><th>Commodities</th><th>Attendence</th><th>Action</th></tr>
+    <tr><th>Name</th><th>Size</th><th>Commodities</th><th>Attendence</th></tr>
     <% for(var i=0; result.length > i; i++ ) { %>
     <tr>
         <td><a href="/stadium/?stadium_id=<%= result[i].stadium_id %>"><%= result[i].stadium_name %></a></td>
         <td><%= result[i].size %></td> <td><%= result[i].commodities %></td> <td><%= result[i].attendence %></td>
-        <td><form action="/stadium/delete/">
-                <input type="hidden" name="stadium_id" id="stadium_id" value="<%= result[i].stadium_id %>" />
-                <input type="submit" value="Delete"/>
+
             </form>
         </td>
     </tr>

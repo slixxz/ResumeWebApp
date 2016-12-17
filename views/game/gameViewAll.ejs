@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Game</title>
+</head>
+<body style="background-color:powderblue;">
+<h1>Game</h1>
+<a href="/game/add">Add New Match</a> <br />
+<br/>
+
+<table border="1">
+
+    <tr><th>Play Date</th><th>Final Score</th> <th>Location</th><th>Edit/Delete</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/game/?game_id=<%= result[i].game_id %>"><%= result[i].play_date%></a></td>
+
+        <td><%= result[i].final_score %></td>
+        <td><%= result[i].location %></td>
+
+        <td><form action="/game/delete/">
+                <input type="hidden" name="game_id" id="game_id" value="<%= result[i].game_id %>" />
+                <input type="submit" value="Delete"/>
+                <button onclick="event.preventDefault();window.location.href='/game/edit2/?game_id=<%= result[i].game_id %>'">Edit game</button>
+
+            </form>
+        </td>
+
+    </tr>
+    <% } %>
+</table>
+</body>
+
+</html>
+
+
